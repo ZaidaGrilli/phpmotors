@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
+
+
+:root {
+  --primary-color: #bababa; 
+  --secondary-color: #a6cbeb; 
+  --accent-color: #8d8d8d; 
+  --accent2-color: #4c96d7;
+  --text-color: #3a3a3a;
+  --white: #ffffff;
+
+}
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Share Tech Mono', sans-serif;
+  margin: 0;
+  background-image: url('/phpmotors/images/site/small_check.jpg');
+  background-size: cover;
+}
+
+#wrapper {
+  width: 100%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1em;
+}
+
+main {
+  padding-left: .25rem;
+}
+
+main #dl-Showcase img{ 
+  max-width: 100%;
+  height: auto;
+}
+#header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+#headertxt {
+  grid-column: 3/3;
+  align-self: center;
+}
+
+nav { 
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin: 0;
+  background-color: var(--text-color);
+  width: 100%;
+  
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 20px;
+  
+}
+
+nav a {
+  text-decoration: none;
+  background-color: var(--text-color);
+  color: white;
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+nav a:hover {
+  color: var(--text-color); 
+  background-color: var(--accent2-color);
+}
+
+footer {
+  text-align: center;
+}
+/*forms css*/
+.user-form {
+  padding: 0.5rem 1rem;
+  font-size: 1.35rem;
+}
+
+.user-form label {
+  font-weight: bolder;
+  padding: 0.5rem 0;
+}
+.user-form > a {
+  padding: 0.75rem 0;
+}
+
+.user-form * {
+  display: block;
+}
+
+/*Home page css*/
+
+#dl-Showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: minmax(auto, auto);
+}
+#dl-Showcase img {
+  grid-column: 1/5;
+  grid-row: 1;
+  z-index: 1; /* Lower value */
+}
+#dl-Showcase p {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+#Own-today {
+  padding: 1.5em;
+  padding-top: 0.5em;
+  grid-column: 1/2;
+  grid-row: 1;
+  z-index: 2; /* Higher value appears on top*/
+
+}
+#Own-today p{
+  color: var(--accent2-color);
+}
+
+#dl-Showcase button {
+  padding: 1em;
+  background-color: var(--accent2-color);
+  color: var(--text-color)s;
+  grid-column: 2/4;
+  font-size: larger;
+  margin-top: 1em;
+}
+
+.large-screen{
+  display: none;
+}
+
+#reviews li{
+  padding: 0.5em;
+}
+#upgrades{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em;
+}
+#upgrades h1{
+  grid-column: 1/-1;
+}
+.upgrades img{
+  height: 65px;
+  margin: 0.5em;
+}
+.upgrades a {
+  background-color: white;
+  width: 100%;
+  text-align: center;
+}
+.upgrades {
+  background-color: var(--accent2-color);
+  display: grid;
+  place-items: center;
+}
+
+
+/*Home page css*/
+/* De aqui comienzan las reglas de pantalla grande */
+@media only screen and (min-width: 768px) {
+  body {
+    background-image: url("/phpmotors/images/site/small_check.jpg");
+    background-size: cover;
+  }
+
+  #wrapper {
+    border: 5px solid #4c96d7;
+    border-radius: 10px;
+    margin-top: 1em;
+    width: 75%;
+  }
+
+  #Own-today {
+    padding: 1.5em;
+    padding-top: 0.5em;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2; /* Higher value appears on top*/
+  }
+  #dl-Showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+  }
+  #dl-Showcase button{
+    
+    padding: 0.5em;
+    background-color: var(--accent2-color);
+    color: var(--text-color);
+  }
+
+  .large-screen{
+    display: block;
+  }
+  .small-screen{
+    display: none;
+  }
+  #dl-Showcase img {
+    grid-column: 1/6;
+    grid-row: 1;
+    z-index: 1; /* Lower value */
+  }
+  #Own-today p{
+    color: var(--accent2-color);
+    font-size: small;
+  }
+  .info-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    margin: 1em;
+  }
+  .info-layout #upgrades {
+    grid-column: 1/2;
+    grid-row: 1;
+    
+  }
+  .info-layout #reviews {
+    grid-column: 2/3;
+    grid-row: 1;
+  }
+
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+  }
+
+}

@@ -11,4 +11,17 @@ function checkEmail($clientEmail){
     $pattern = '/^(?=.*[[:digit:]])(?=.*[[:punct:]\s])(?=.*[A-Z])(?=.*[a-z])(?:.{8,})$/';
     return preg_match($pattern, $clientPassword);
    }
+
+
+   
+// Build the classifications select list 
+function buildClassificationList($classifications){ 
+   $classificationList = '<select name="classificationId" id="classificationList">'; 
+   $classificationList .= "<option>Choose a Classification</option>"; 
+   foreach ($classifications as $classification) { 
+       $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>"; 
+   } 
+   $classificationList .= '</select>'; 
+   return $classificationList; 
+}
 ?>

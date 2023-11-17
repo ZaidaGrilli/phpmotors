@@ -145,30 +145,37 @@ session_start();
         $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING);
         $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
         $newEmail = filter_input(INPUT_POST, 'newEmail', FILTER_SANITIZE_EMAIL);
-        $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);  
+        $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);  
         
         
       // Validate the new email.
       $newEmail = checkEmail($newEmail);
 
-      // If email already exist, return client to update page.
-      if (checkExistingEmail($newEmail)){
-          $message = "Email already exist, please try a different one.";
-          include '../view/client-update.php';
-           exit;
+      // Check if the $newEmail is different
+      // to the email stored in the session
+      if ($newEmail !== $_SESSION['clientData']['clientEmail']){
+        // Validate the new email.
+        $newEmail = checkEmail($newEmail);
+
+        // If email already exist, return client to update page.
+        if (checkExistingEmail($newEmail)){
+            $message = "Email already exist, please try a different one.";
+            include '../view/client-update.php';
+             exit;
+        }
       }   
       // Check that all the information is present.
-        if(empty($firstName) || empty($lastName) || empty($newEmail) || empty($invId)){
+        if(empty($firstName) || empty($lastName) || empty($newEmail) || empty($clientId)){
             $message = '<p>Please provide information for all empty form fields.</p>';
             include '../view/client-update.php';
             exit;
         }
 
         // Update the information in the database.
-        $resultPersonal = updatePersonal($firstName, $lastName, $newEmail, $invId);
+        $resultPersonal = updatePersonal($firstName, $lastName, $newEmail, $clientId);
 
         // Query the client data based on the email address
-        $clientData = getClientId($invId);
+        $clientData = getClientId($clientId);
         array_pop($clientData);
         // Store the array into the session
         $_SESSION['clientData'] = $clientData;
@@ -190,7 +197,7 @@ session_start();
         case 'updatePassword':
             // Get the new password.
             $newPassword = filter_input(INPUT_POST, 'newPassword', FILTER_SANITIZE_STRING);
-            $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+            $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
     
             // Validate the password
             $checkPassword = checkPassword($newPassword);
@@ -205,7 +212,7 @@ session_start();
           $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
           // Update the password.
-          $resultPassword = updateNewPassword($hashedPassword, $invId);
+          $resultPassword = updateNewPassword($hashedPassword, $clientId);
   
           // Check and report the result
           if($resultPassword === 1){

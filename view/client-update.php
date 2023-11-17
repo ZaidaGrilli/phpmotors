@@ -45,7 +45,7 @@ if (!$_SESSION['loggedin']){
                 <br>
                 <input type="submit" name="submit" value="Update Information">
                 <input type="hidden" name="action" value="updatePersonal">
-                <input type="hidden" name="invId" <?php if(isset($_SESSION['clientData']['clientId'])){echo "value='".$_SESSION['clientData']['clientId']."'";} ?>>
+                <input type="hidden" name="clientId" <?php if(isset($_SESSION['clientData']['clientId'])){echo "value='".$_SESSION['clientData']['clientId']."'";} ?>>
             </form>
             <h2>Update Password</h2>
             <p>
@@ -59,7 +59,7 @@ if (!$_SESSION['loggedin']){
                 <br>
                 <input type="submit" name="submit" value="Update Password">
                 <input type="hidden" name="action" value="updatePassword">
-                <input type="hidden" name="invId" <?php if(isset($_SESSION['clientData']['clientId'])){echo "value='".$_SESSION['clientData']['clientId']."'";} ?>>
+                <input type="hidden" name="clientId" <?php if(isset($_SESSION['clientData']['clientId'])){echo "value='".$_SESSION['clientData']['clientId']."'";} ?>>
             </form>
         </main>
         <footer>

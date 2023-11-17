@@ -7,6 +7,8 @@ require_once '../library/connections.php';
 require_once '../model/main-model.php';
 // Get the vehical model
 require_once '../model/vehicles-model.php';
+// Get the functions file
+require_once '../library/functions.php';
 // Create or access a Session
 session_start();
 

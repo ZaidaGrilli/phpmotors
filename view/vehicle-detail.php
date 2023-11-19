@@ -8,7 +8,7 @@
     <link href="/phpmotors/css/style.css" type="text/css" rel="stylesheet" media="screen">
 </head>
 <body>
-    <div class = "page">
+    <div id="wrapper">
         <header>
             <?php require $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
         </header>
@@ -16,7 +16,7 @@
             <?php echo $navList; ?>
         </nav>
         <main>
-            <h1><?php echo "$vehiclesDetail[invMake] $vehiclesDetail[inModel]"; ?></h1>
+            <h1><?php echo "$vehiclesDetail[invMake] $vehiclesDetail[invModel]"; ?></h1>
             <?php if(isset($message)){
                     echo $message; }
             ?>

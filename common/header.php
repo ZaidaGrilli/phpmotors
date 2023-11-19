@@ -12,6 +12,6 @@
 
 </p><?php
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
-    echo "<a href = '/phpmotors/accounts/index.php/' class = 'name-label'>Welcome ".$_SESSION['clientData']['clientFirstname']."</a>";
+    echo "<a href = '/phpmotors/accounts/index.php' class = 'name-label'>Welcome ".$_SESSION['clientData']['clientFirstname']."</a>";
 } ?>
 </header>

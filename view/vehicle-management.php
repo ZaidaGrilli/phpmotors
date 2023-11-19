@@ -36,7 +36,7 @@ if (isset($_SESSION['message'])) {
                     echo $message;
                 }
             ?>
-            <p><a href = "../vehicles/index.php/?action=classification">Add a car classification.</a></p>
+            <p><a href = "../vehicles/index.php/?action=addClassification">Add a car classification.</a></p>
             <p><a href = "../vehicles/index.php/?action=vehicle">Add a vehicle to inventory.</a></p>
             <?php
             if (isset($classificationList)) { 
